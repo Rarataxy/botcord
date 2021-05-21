@@ -1,0 +1,33 @@
+.toolbar {
+  display: flex;
+  flex-direction: row-reverse;
+  position: fixed;
+  height: 18px;
+  margin-top: 4px;
+  width: 100vw;
+  background-color: #202225;
+  -webkit-app-region: drag;
+  z-index: 5000;
+}
+
+.toolbar-btn {
+  position: relative;
+  display: flex;
+  width: 28px;
+  height: 22px;
+  top: -4px;
+  cursor: pointer;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  -webkit-app-region: no-drag;
+}
+
+.minmax:hover {
+  background-color: rgba(79, 84, 92, 0.16);
+}
+
+.close:hover {
+  color: #fff;
+  background-color: #ed4245;
+}
