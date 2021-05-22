@@ -1,6 +1,6 @@
 import path from 'path';
 import {app, BrowserWindow} from 'electron';
-const { ipcMain } = require('electron')
+const { ipcMain, webContents } = require('electron')
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
@@ -26,19 +26,31 @@ app.on('window-all-closed', () => {
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setActivity('Sussus Amogus', {type: "PLAYING"});
+  
 });
 
-ipcMain.on('fetchServerlist', (event, args)=>{
+ipcMain.on('fetchServerlist', (event, args) => {
   let serverlist = []
   const servers = bot.guilds.cache;
   servers.map(server => {
-  serverlist.push(server.name)
+    serverlist.push(server.name)
   });
-  const srvs = {
-      "servers": serverlist
-  }
-  event.sender.send('fetchServerlist', JSON.stringify(srvs))
+  window.webContents.send( 'serverlist', serverlist);
+  console.log('sent');
 })
 
+bot.login('NDEzMzkyMzczMzI2ODA3MDYw.WoR3pg.HIE1cIfRmHWQ1ecvNdK0I__7WeM');
 
-bot.login('');
+
+
+// ipcMain.on('fetchServerlist', (event, args)=>{
+//   let serverlist = []
+//   const servers = bot.guilds.cache;
+//   servers.map(server => {
+//   serverlist.push(server.name)
+//   });
+//   event.sender.send('fetchServerlist', serverlist)
+// })
+
+
+

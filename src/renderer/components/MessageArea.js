@@ -10,12 +10,13 @@ export class MessageArea extends React.Component {
         }
     }
 
-    componentDidMount() {
-        ipcRenderer.send('fetchServerlist', 'ping')
-        ipcRenderer.on('fetchServerlist', (event, args) => {
-            this.setState({serverlist: args})
-        })
-    }
+    // componentDidMount() {
+    //     ipcRenderer.send('fetchServerlist', 'ping')
+    //     ipcRenderer.on('fetchServerlist', (event, args) => {
+    //         // this.setState({serverlist: args})
+    //         console.log(args);
+    //     })
+    // }
 
     render() {
         return (
