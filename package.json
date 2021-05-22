@@ -47,6 +47,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "discord.js": "^12.5.3",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   }
