@@ -8,7 +8,7 @@ import './app.less';
 export class App extends React.Component {
   render() {
     return [
-      <Toolbar/>,
+      <Toolbar />,
       <Main />
     ];
   }
