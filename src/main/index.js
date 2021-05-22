@@ -39,7 +39,7 @@ ipcMain.on('fetchServerlist', (event, args) => {
   console.log('sent');
 })
 
-bot.login('NDEzMzkyMzczMzI2ODA3MDYw.WoR3pg.HIE1cIfRmHWQ1ecvNdK0I__7WeM');
+bot.login('');
 
 
 
