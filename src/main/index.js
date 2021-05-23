@@ -32,25 +32,31 @@ bot.on('ready', () => {
 ipcMain.on('fetchServerlist', (event, args) => {
   let serverlist = []
   const servers = bot.guilds.cache;
-  servers.map(server => {
-    serverlist.push(server.name)
-  });
+  servers.map(srv => {
+      let server = {
+        id: srv.id,
+        name: srv.name,
+        icon: srv.iconURL()
+      }
+      serverlist.push(server)
+    });
   window.webContents.send( 'serverlist', serverlist);
-  console.log('sent');
+})
+
+ipcMain.on('fetchChannellist', (event, args) => {
+  const currentServer = bot.guilds.cache.find(srv => srv.id === args);
+  const serverName = currentServer.name
+  let channellist = []
+  currentServer.channels.cache.map(channel => {
+      if (channel.type == 'text') {
+        let textchannel = {
+          id: channel.id,
+          name: channel.name
+        }
+        channellist.push(textchannel);
+      }
+  });
+  window.webContents.send('fetchChannellist', [channellist, serverName])
 })
 
 bot.login('');
-
-
-
-// ipcMain.on('fetchServerlist', (event, args)=>{
-//   let serverlist = []
-//   const servers = bot.guilds.cache;
-//   servers.map(server => {
-//   serverlist.push(server.name)
-//   });
-//   event.sender.send('fetchServerlist', serverlist)
-// })
-
-
-

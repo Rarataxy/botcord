@@ -10,13 +10,28 @@ export class ServerList extends React.Component {
         }
     }
 
+    fetchChannellist = (id) => {
+        ipcRenderer.send('fetchChannellist', id)
+    }
+
     render() {
         return (
-            <div className={'server-list'}>
-                {this.state.serverlist.map(server =>{
-                    return <div ip={server.toString()} className={'server'}>server</div>
-                })}
-                {/* {console.log(this.state.serverlist)} */}
+            <div className="guilds">
+                <div className="dms server">
+                    <div className="server-icon"></div>
+                </div>
+                <div className="separator"></div>
+                <div className='server-list'>
+                    {this.state.serverlist.map(server =>{
+                        return (
+                            <div id={server.id} className='server'>
+                                <div className="server-icon-wrapper">
+                                    <img onClick={this.fetchChannellist.bind(this, server.id)} className='server-icon' src={server.icon} alt={server.name} />
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         );
     }
@@ -25,6 +40,5 @@ export class ServerList extends React.Component {
         ipcRenderer.on('serverlist', (event, args) => {
             this.setState({serverlist: args})
         })
-        console.log('bruh');
     }
 }

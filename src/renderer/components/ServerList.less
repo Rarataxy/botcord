@@ -1,4 +1,43 @@
+.guilds {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+
+  .separator {
+    width: 45px;
+  }
+}
+
 .server-list {
   height: 100%;
   width: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.server {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  margin-top: 10px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.dms {
+  margin-top: 0;
+
+  .server-icon {
+    background-color: hsla(0, 0, 100%, 0.06);
+  }
+}
+.server-icon {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.server-icon:hover {
+  border-radius: 35%;
 }

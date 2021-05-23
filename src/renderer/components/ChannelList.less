@@ -1,5 +1,83 @@
-.channel-list {
+.channel-section {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 210px;
   background-color: #2f3136;
+  overflow: hidden;
+  color: #8e9297;
+  font-size: 15px;
+}
+
+.server-name {
+  position: relative;
+  display: flex;
+  background-color: #2f3136;
+  height: 40px;
+  flex-shrink: 0;
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(4, 4, 5, 0.2), 0 1.5px 0 rgba(6, 6, 7, 0.05),
+    0 2px 0 rgba(4, 4, 5, 0.05);
+  z-index: 100;
+  align-items: center;
+  padding: 0 16px;
+
+  span {
+    color: #fff;
+    font-weight: 600;
+  }
+}
+
+.channel-list {
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+.channel-list:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+.channel {
+  display: flex;
+  width: 100%;
+  margin-left: 8px;
+  transition: 0.05s ease-in-out;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+
+  ::before {
+    content: "#";
+    font-size: 18px;
+    margin-right: 8px;
+  }
+
+  span {
+    margin: 0;
+    padding: 6px;
+  }
+}
+.channel:hover {
+  background-color: rgba(79, 84, 92, 0.16);
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  visibility: hidden;
+  background-color: #202225;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  min-height: 40px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+  height: 0px;
 }
