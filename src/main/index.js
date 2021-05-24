@@ -77,4 +77,4 @@ ipcMain.on('changeStatus', (event, args) => {
 })
 
 
-bot.login('NDEzMzkyMzczMzI2ODA3MDYw.WoR3pg.Uqk_o2gktLtNLaZHFS2Doa8xnyg');
+bot.login('');
