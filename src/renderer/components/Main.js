@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {ServerList} from './ServerList'
-import {ChannelList} from './ChannelList'
+import {LeftPanel} from './LeftPanel'
 import {MessageArea} from './MessageArea'
 import './Main.less'
 
@@ -15,7 +15,7 @@ export class Main extends React.Component {
         return (
             <div className={'main'}>
                 <ServerList />
-                <ChannelList />
+                <LeftPanel />
                 <MessageArea />
             </div>
         );

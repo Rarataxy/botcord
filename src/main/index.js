@@ -26,8 +26,20 @@ app.on('window-all-closed', () => {
 bot.on('ready', () => {
   console.log(`Logged in as ${bot.user.tag}!`);
   bot.user.setActivity('Sussus Amogus', {type: "PLAYING"});
-  
 });
+
+function getBotInfo() {
+  let botInfo = {
+    avatar: bot.user.avatarURL(),
+    username: bot.user.username,
+    status:  bot.user.presence.activities[0].name
+  }
+  return botInfo;
+}
+
+ipcMain.on('getBotInfo', (event, args) => {
+  window.webContents.send('getBotInfo', getBotInfo())
+})
 
 ipcMain.on('fetchServerlist', (event, args) => {
   let serverlist = []
@@ -59,4 +71,10 @@ ipcMain.on('fetchChannellist', (event, args) => {
   window.webContents.send('fetchChannellist', [channellist, serverName])
 })
 
-bot.login('');
+ipcMain.on('changeStatus', (event, args) => {
+  bot.user.setActivity(args, {type: "PLAYING"})
+  window.webContents.send('getBotInfo', getBotInfo())
+})
+
+
+bot.login('NDEzMzkyMzczMzI2ODA3MDYw.WoR3pg.Uqk_o2gktLtNLaZHFS2Doa8xnyg');
