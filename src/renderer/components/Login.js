@@ -1,5 +1,7 @@
 import React from 'react';
 const { ipcRenderer } = require('electron')
+import './Login.less'
+
 
 const Login = ({redirect}) => {
     
@@ -11,9 +13,11 @@ const Login = ({redirect}) => {
     }
 
     return (
-        <div>
-            <input id="token" type="text" ></input>
-            <button onClick={handleLogIn}>Log in</button>
+        <div className="login-page">
+            <div className="login">
+                <input placeholder="Input your bot token here" id="token" type="text" ></input>
+                <button onClick={handleLogIn}>Log in</button>
+            </div>
         </div>
     );
 }

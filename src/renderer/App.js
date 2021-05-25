@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Toolbar} from './components/Toolbar';
-import {Main} from './components/Main';
+import Main from './components/Main';
 import './app.less';
 
 const { ipcRenderer } = require('electron')
