@@ -1,5 +1,6 @@
 import path from 'path';
 import {app, BrowserWindow} from 'electron';
+const config = require('../../config/config.json')
 const { ipcMain, webContents } = require('electron')
 const Discord = require('discord.js');
 const bot = new Discord.Client();
@@ -28,6 +29,10 @@ bot.on('ready', () => {
   bot.user.setActivity('Sussus Amogus', {type: "PLAYING"});
 });
 
+ipcMain.on('getBotInfo', (event, args) => {
+  window.webContents.send('getBotInfo', getBotInfo())
+})
+
 function getBotInfo() {
   let botInfo = {
     avatar: bot.user.avatarURL(),
@@ -36,10 +41,6 @@ function getBotInfo() {
   }
   return botInfo;
 }
-
-ipcMain.on('getBotInfo', (event, args) => {
-  window.webContents.send('getBotInfo', getBotInfo())
-})
 
 ipcMain.on('fetchServerlist', (event, args) => {
   let serverlist = []
@@ -77,4 +78,4 @@ ipcMain.on('changeStatus', (event, args) => {
 })
 
 
-bot.login('');
+bot.login(config.token);

@@ -1,13 +1,17 @@
-import React from 'react';
-import {render} from 'react-dom';
+import React, {useState, useEffect}from 'react';
+import ReactDOM from "react-dom";
 
 import {App} from './App';
+import Login from './components/Login'
 
-const { ipcRenderer } = require('electron')
-ipcRenderer.send('fetchServerlist', 'servers')
-ipcRenderer.send('getBotInfo', 'bot')
 
-render(
-  <App />,
-  document.getElementById('app')
-);
+const AppMount = () =>{
+  const [page, redirect] = useState(window.localStorage.getItem('page'))
+
+  if (page === 'app') {
+    return <App />
+  } else {
+    return <Login redirect={redirect}/>
+  }
+}
+ReactDOM.render(<AppMount />, document.getElementById('app'))

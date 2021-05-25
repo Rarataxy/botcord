@@ -38,6 +38,7 @@ export class Toolbar extends React.Component {
     });
     
     document.getElementById('close').addEventListener('click', () => {
+        window.localStorage.clear();
         remote.app.quit();
     });
   }
