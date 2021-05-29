@@ -1,5 +1,6 @@
 import path from 'path';
 import {app, BrowserWindow} from 'electron';
+import { listeners } from 'cluster';
 const config = require('../../config/config.json')
 const { ipcMain, webContents } = require('electron')
 const Discord = require('discord.js');
@@ -36,10 +37,10 @@ ipcMain.on('getBotInfo', (event, args) => {
 function getBotInfo() {
   let botInfo = {
     avatar: bot.user.avatarURL(),
-    username: bot.user.username,
-    status:  bot.user.presence.activities[0].name
+    username: bot.user.username
   }
-  return botInfo;
+  let status = bot.user.presence.activities[0].name
+  return [botInfo, status];
 }
 
 ipcMain.on('fetchServerlist', (event, args) => {
@@ -56,8 +57,9 @@ ipcMain.on('fetchServerlist', (event, args) => {
   window.webContents.send( 'serverlist', serverlist);
 })
 
+let currentServer
 ipcMain.on('fetchChannellist', (event, args) => {
-  const currentServer = bot.guilds.cache.find(srv => srv.id === args);
+  currentServer = bot.guilds.cache.find(srv => srv.id === args);
   const serverName = currentServer.name
   let channellist = []
   currentServer.channels.cache.map(channel => {
@@ -70,6 +72,34 @@ ipcMain.on('fetchChannellist', (event, args) => {
       }
   });
   window.webContents.send('fetchChannellist', [channellist, serverName])
+})
+
+// nagitgo0 ko
+let currentChannel
+ipcMain.on('changeChannel', (event, args) => {
+  currentChannel = currentServer.channels.cache.find(ch => ch.id === args);
+  window.webContents.send('changeChannel', currentChannel)
+})
+
+
+bot.on('message', msg => {
+  if (msg.channel != currentChannel ) return
+  let message = {
+    id: msg.id,
+    nonce: msg.nonce,
+    content: msg.content,
+    author: {
+      ...msg.author,
+      avatar: msg.author.avatarURL()
+    },
+    member: {
+      ...msg.member,
+      displayHex: msg.member.displayHexColor
+    },
+    guild: msg.guild,
+    timestamp: msg.createdTimestamp
+  }
+  window.webContents.send('incomingMessage', message)
 })
 
 ipcMain.on('changeStatus', (event, args) => {

@@ -10,6 +10,11 @@ export class ChannelList extends React.Component {
             serverName: ''
         }
     }
+
+    changeChannel(channel) {
+        ipcRenderer.send('changeChannel', channel)
+    }
+
     render() {
         return (
             <div className={'channel-section'}>
@@ -19,7 +24,7 @@ export class ChannelList extends React.Component {
                 <div className="channel-list">
                 {this.state.channels.map(channel => {
                     return (
-                        <div id={channel.id} className='channel'>
+                        <div onClick={this.changeChannel.bind(this,channel.id)} key={channel.id} id={channel.id} className='channel'>
                             <span className='text-overflow'>{channel.name}</span>
                         </div>
                     )

@@ -24,7 +24,7 @@ export class ServerList extends React.Component {
                 <div className='server-list'>
                     {this.state.serverlist.map(server =>{
                         return (
-                            <div id={server.id} className='server'>
+                            <div key={server.id} id={server.id} className='server'>
                                 <div className="server-icon-wrapper">
                                     <img onClick={this.fetchChannellist.bind(this, server.id)} className='server-icon' src={server.icon} alt={server.name} />
                                 </div>
