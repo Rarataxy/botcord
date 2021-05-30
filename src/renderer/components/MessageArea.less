@@ -1,9 +1,42 @@
 .message-area {
   background-color: #36393f;
-  flex-grow: 1;
+  flex: 1 1 auto;
+  overflow-y: scroll !important;
+  min-height: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  user-select: text;
+}
+.messages-wrapper {
+  flex-direction: column;
+}
 
-  p{
-    color: white;
-    margin: 10px 20px;
-  }
+.message-area::-webkit-scrollbar {
+  background-color: transparent;
+  width: 14px;
+}
+.message-area::-webkit-scrollbar-track {
+  visibility: visible;
+  background: #2f3136;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+}
+.message-area::-webkit-scrollbar-thumb {
+  background-color: #202225;
+  background-clip: padding-box;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+  min-height: 40px;
+}
+.message-area::-webkit-scrollbar-button {
+  display: none;
+  height: 0px;
+}
+
+.spacer {
+  display: block;
+  width: 1px;
+  height: 10px;
+  flex: 0 0 auto;
 }

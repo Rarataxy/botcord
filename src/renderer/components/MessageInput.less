@@ -1,0 +1,34 @@
+.text-area {
+  display: flex;
+  min-height: 46px;
+  max-height: 150px;
+  width: 100%;
+  padding: 2px 16px 10px;
+}
+
+.message-input-wrapper {
+  display: flex;
+  max-height: 150px;
+  width: 100%;
+  padding: 4px;
+  align-items: center;
+  border-radius: 8px;
+  background-color: rgb(64, 68, 75);
+}
+
+#message-input {
+  outline: none;
+  width: 95%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: #fff;
+  padding: 4px 16px;
+  align-items: center;
+  font-size: 15px;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+[contentEditable="true"]:empty:before {
+  content: attr(data-text);
+  color: #72767d;
+}

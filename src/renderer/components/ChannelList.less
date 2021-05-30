@@ -1,3 +1,7 @@
+.channel-area {
+  flex-shrink: 0;
+}
+
 .channel-section {
   display: flex;
   flex-direction: column;
@@ -30,12 +34,7 @@
 
 .channel-list {
   height: auto;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding-top: 10px;
-}
-.channel-list:hover::-webkit-scrollbar-thumb {
-  visibility: visible;
 }
 
 .channel {
@@ -60,24 +59,4 @@
 }
 .channel:hover {
   background-color: rgba(79, 84, 92, 0.16);
-}
-
-.channel-list::-webkit-scrollbar {
-  background-color: transparent;
-  width: 8px;
-}
-.channel-list::-webkit-scrollbar-track {
-  background: transparent;
-}
-.channel-list::-webkit-scrollbar-thumb {
-  visibility: hidden;
-  background-color: #202225;
-  background-clip: padding-box;
-  border: 2px solid transparent;
-  border-radius: 8px;
-  min-height: 40px;
-}
-.channel-list::-webkit-scrollbar-button {
-  display: none;
-  height: 0px;
 }

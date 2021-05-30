@@ -2,7 +2,7 @@ import React from 'react';
 
 import {ServerList} from './ServerList'
 import {LeftPanel} from './LeftPanel'
-import {MessageArea} from './MessageArea'
+import {Chat} from './Chat'
 import './Client.less'
 
 
@@ -16,7 +16,7 @@ export class Client extends React.Component {
             <div className={'main'}>
                 <ServerList />
                 <LeftPanel />
-                <MessageArea />
+                <Chat />
             </div>
         );
     }

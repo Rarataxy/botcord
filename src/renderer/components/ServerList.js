@@ -16,7 +16,7 @@ export class ServerList extends React.Component {
 
     render() {
         return (
-            <div className="guilds">
+            <div className="guilds scrollable-container">
                 <div className="dms server">
                     <div className="server-icon"></div>
                 </div>

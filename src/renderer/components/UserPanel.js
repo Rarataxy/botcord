@@ -24,7 +24,8 @@ export class UserPanel extends React.Component {
                 <img className="user-avatar" src={this.state.bot.avatar} alt="icon" />
                 <div className="user-info text-overflow">
                     <span id="user-name">{this.state.bot.username}</span>
-                    <span onClick={() => {this.changeStatus('sugoma sussus')}} id="status">{this.state.status}</span>
+                    <span id="status">{this.state.status}</span>
+                    {/* <span onClick={() => {this.changeStatus('sugoma sussus')}} id="status">{this.state.status}</span> */}
                 </div>
             </div>
         )

@@ -17,8 +17,4 @@ export class App extends React.Component {
       <Main key={'main'} />
     ];
   }
-  componentDidMount() {
-    ipcRenderer.send('fetchServerlist', 'servers')
-    ipcRenderer.send('getBotInfo', 'bot')
-  }
 }

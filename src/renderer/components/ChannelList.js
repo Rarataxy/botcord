@@ -21,7 +21,7 @@ export class ChannelList extends React.Component {
                 <div className='server-name '>
                     <span className='text-overflow'>{this.state.serverName}</span>
                 </div>
-                <div className="channel-list">
+                <div className="channel-list scroll-on-hover scrollable-container">
                 {this.state.channels.map(channel => {
                     return (
                         <div onClick={this.changeChannel.bind(this,channel.id)} key={channel.id} id={channel.id} className='channel'>
