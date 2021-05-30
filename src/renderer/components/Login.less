@@ -1,51 +1,90 @@
-// * {
-//   box-sizing: border-box;
-// }
-
-// body {
-//   overflow: hidden;
-//   margin: 0;
-//   height: 100vh;
-//   font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
-//   font-size: 16px;
-// }
-
-// #app {
-//   display: flex;
-//   height: 100%;
-//   width: 100%;
-// }
-
 .login-page {
   position: relative;
+  margin-top: 22px;
   display: flex;
-  // flex-direction: row;
-  // margin-top: 22px;
+  flex-direction: column;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  background: url("../assets/images/login-background.jpg") no-repeat;
+  background-size: cover;
+  font-family: Ginto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .login {
   display: flex;
-  height: 300px;
-  width: 500px;
-  justify-content: center;
+  width: 600px;
   align-items: center;
-  flex-direction: row;
-  // overflow: hidden;
+  flex-direction: column;
+  background-color: #2f3136;
+  border-radius: 4px;
+  padding: 32px;
+  text-align: center;
+
+  h5 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 18px;
+    margin: 0;
+    color: #b9bbbe;
+  }
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 20px;
+  width: 100%;
 
   button {
-    height: 40px;
-    width: 60px;
-    border-radius: 8px;
+    background-color: #7289d9;
+    color: #fff;
     border: none;
+    border-radius: 3px;
+    outline: 0;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 60px;
+    cursor: pointer;
+  }
+}
+
+#login-label {
+  font-size: 12px;
+  color: #8e9297;
+  margin-bottom: 8px;
+}
+#login-label.error {
+  color: rgb(237, 66, 69) !important;
+
+  #error-message {
+    font-style: italic;
   }
 }
 
 #token {
-  height: 40px;
-  width: 200px;
-  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
   border: none;
+  border-radius: 3px;
+  outline: 0;
+  padding: 10px;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+#token.error {
+  border-color: rgb(237, 66, 69) !important;
+}
+
+#token:focus {
+  border: 1px #7289d9 solid;
 }

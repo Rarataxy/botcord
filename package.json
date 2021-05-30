@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-template",
-  "version": "0.0.1",
-  "description": "A light-weight template for createing Electron App within React",
+  "name": "botcord",
+  "version": "1.0.0",
+  "description": "A discord bot client made with React, Electron & Discord.js",
   "main": "./dist/main.prod.js",
   "scripts": {
     "clear": "rm -rf ./dist",
@@ -16,11 +16,11 @@
   "keywords": [
     "electron",
     "react",
-    "boilerplate",
-    "template"
+    "discord",
+    "bot",
+    "client"
   ],
-  "author": "SmallStoneSK",
-  "license": "MIT",
+  "author": "Rarataxy",
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
